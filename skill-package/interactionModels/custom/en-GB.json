@@ -1,0 +1,176 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "new movies",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "NewMoviesIntent",
+          "slots": [
+            {
+              "name": "week_type",
+              "type": "WeekType",
+              "samples": [
+                "{week_type}",
+                "{week_type} week",
+                "I want movie names for {week_type} week"
+              ]
+            }
+          ],
+          "samples": [
+            "what will be released {week_type} week",
+            "what was released {week_type} week",
+            "what is on {week_type} week",
+            "which new movies will be released {week_type} week",
+            "which new movies are released {week_type} week",
+            "which new movies were released {week_type} week",
+            "tell me about new movies {week_type} week",
+            "tell me about newly released movies",
+            "what new movies were released {week_type} week",
+            "what new movies are released {week_type} week",
+            "tell me about new movies on {week_type} week",
+            "tell me about new movies"
+          ]
+        },
+        {
+          "name": "MovieInfoIntent",
+          "slots": [
+            {
+              "name": "movie_name",
+              "type": "AMAZON.Movie",
+              "samples": [
+                "the name of the movie is {movie_name}",
+                "{movie_name}"
+              ]
+            }
+          ],
+          "samples": [
+            "about the movie {movie_name}",
+            "about {movie_name}",
+            "tell me about a movie",
+            "what is the movie {movie_name} about",
+            "what is {movie_name} about",
+            "tell me about {movie_name}",
+            "tell me about movie {movie_name}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "next"
+              }
+            },
+            {
+              "name": {
+                "value": "this"
+              }
+            },
+            {
+              "name": {
+                "value": "last"
+              }
+            }
+          ],
+          "name": "WeekType"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "NewMoviesIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "week_type",
+              "type": "WeekType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.48527362922.1199228065286"
+              }
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        },
+        {
+          "name": "MovieInfoIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "movie_name",
+              "type": "AMAZON.Movie",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.1634725658005.318370922414",
+                "elicitation": "Elicit.Slot.1634725658005.318370922414"
+              }
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.978022679115.809919236511",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Do you want movie names for this week, last week or next week?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.48527362922.1199228065286",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Do you want movie names for this week, last week or next week?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1634725658005.318370922414",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the name of the movie you would like to learn about?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.1634725658005.318370922414",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "I heard {movie_name} . Is this correct?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "9"
+}
