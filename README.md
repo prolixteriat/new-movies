@@ -7,5 +7,5 @@ New Movies is an Alexa skill which enables Alexa-compatible devices to provide a
 The skill is written in Python as an [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/services-alexa.html).
 
 ## Link to Published Skill
-The app has been published to the Amazon: 
+The skill has been published to Amazon: 
 https://www.amazon.co.uk/Kevin-Morley-New-Movies/dp/B0B7SN4LTP/
